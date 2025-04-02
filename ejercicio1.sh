@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ $(id -u ) -ne 0 ]; then 
-echo "Se necesita usar root para ejecutar el script :o " >&2
+echo "Se necesita usar root para ejecutar el script :o " 
 exit 1
 fi 
 
@@ -44,7 +44,3 @@ else
  echo "No existe :'("
  exit 1
 fi
-
-
-
-
