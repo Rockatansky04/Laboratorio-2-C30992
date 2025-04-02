@@ -1,10 +1,10 @@
 #!/bin/bash
 
 if [ $(id -u ) -ne 0 ]; then 
-echo "Se necesita usar root para ejecutar el script" >&2
+echo "Se necesita usar root para ejecutar el script :o " >&2
 exit 1
-
 fi 
+
 echo "Buenas :) "
 
 read -p "Ingrese el nombre de usuario: " Nombre
@@ -33,13 +33,18 @@ fi
 if [ -e "$RutaArchivo" ]; then
  echo "Excelente, la ruta funciona"
 
+ sudo chown "$Nombre:$Grupo" "$RutaArchivo"
+ UsuarioArchivo=$(stat -c "%U" "$RutaArchivo")
+ GrupoArchivo=$(stat -c "%G" "$RutaArchivo")
+ echo " $RutaArchivo pertenece a el grupo $GrupoArchivo y a el usuario $UsuarioArchivo"
+
+ chmod 740 "$RutaArchivo"
+
 else 
  echo "No existe :'("
  exit 1
 fi
 
-sudo chown "$Nombre:$Grupo" "$RutaArchivo"
-UsuarioArchivo=$(stat -c "%U" "$RutaArchivo")
-GrupoArchivo=$(stat -c "%G" "$RutaArchivo")
-echo " $RutaArchivo pertenece a el grupo $GrupoArchivo y a el usuario $UsuarioArchivo"
+
+
 
