@@ -9,6 +9,7 @@ if [ $Resultado -eq 0 ]; then
     echo "El comando se ejecutó correctamente..."
 else
     echo "Lo siento :(, no funcionó tu comando. Revisa si lo tienes instalado o lo escribiste mal."
+    exit 1
 fi
 
 Log="MemCPU.log"
