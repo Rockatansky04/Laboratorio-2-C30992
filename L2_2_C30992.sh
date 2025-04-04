@@ -27,7 +27,6 @@ while true; do
     RAM=$(free -m | awk '/Mem/ {print $3}')
     
     echo "$Hora $CPU $RAM" >> "$Log" 
-    echo "Medición $Contador..." 
     
     if [ "$NumeroVeces" -gt 0 ] && [ "$Contador" -ge "$NumeroVeces" ]; then
         break 
